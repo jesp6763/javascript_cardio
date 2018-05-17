@@ -4,17 +4,45 @@
 
 function longestWord(sen) {
   // SOLUTION 1 - Return a single longest word
-  let longestWord = "";
-  let splitted = sen.split(' ');
-  for(let i = 0; i < splitted.length; i++)
+  let getLongestWord = function()
   {
-    longestWord = longestWord.length < splitted[i].length ? splitted[i] : longestWord;
-  }
+    let longestWord = "";
+    let splitted = sen.split(' ');
+    for(let i = 0; i < splitted.length; i++)
+    {
+      longestWord = longestWord.length < splitted[i].length ? splitted[i] : longestWord;
+    }
 
-  return longestWord;
+    return longestWord;
+  }
+  
 
   // SOLUTION 2 - Return an array and include multiple words if they have the same length
+  let getLongestWordsArray = function()
+  {
+    let longestWords = [];
+    let splitted = sen.split(' ');
+    let lengthArray = splitted.map(word => word.length);
+  
+    for(let i = 0; i < splitted.length; i++)
+    {
+      let maxLength = Math.max(...lengthArray);
+  
+      if(splitted[i].length == maxLength)
+      {
+        if(!longestWords.includes(splitted[i]))
+        {
+          longestWords.push(splitted[i]);
+        }
+      }
+    }
+  
+    return longestWords;
+  }
+
   // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
+  let wordsArray = getLongestWordsArray();
+  return wordsArray.length > 1 ? wordsArray : (wordsArray.length == 1 ? wordsArray[0] : "");
 }
 
 // CHALLENGE 2: ARRAY CHUNKING
@@ -22,27 +50,39 @@ function longestWord(sen) {
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {}
+function chunkArray(arr, len)
+{
+
+}
 
 // CHALLENGE 3: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {}
+function flattenArray(arrays)
+{
+  
+}
 
 // CHALLENGE 4: ANAGRAM
 // Return true if anagram and false if not
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {}
+function isAnagram(str1, str2)
+{
+
+}
 
 // CHALLENGE 5: LETTER CHANGES
 // Change every letter of the string to the one that follows it and capitalize the vowels
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-function letterChanges(str) {}
+function letterChanges(str)
+{
+
+}
 
 // Call Function
 const output = longestWord('Hello, my name is Brad');
