@@ -4,6 +4,15 @@
 
 function longestWord(sen) {
   // SOLUTION 1 - Return a single longest word
+  let longestWord = "";
+  let splitted = sen.split(' ');
+  for(let i = 0; i < splitted.length; i++)
+  {
+    longestWord = longestWord.length < splitted[i].length ? splitted[i] : longestWord;
+  }
+
+  return longestWord;
+
   // SOLUTION 2 - Return an array and include multiple words if they have the same length
   // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
 }
