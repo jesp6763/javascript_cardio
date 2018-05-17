@@ -52,7 +52,21 @@ function longestWord(sen) {
 
 function chunkArray(arr, len)
 {
+  let resultArray = [];
+  let chunk = [];
 
+  for (let i = 0; i < arr.length; i++) {
+    const iElement = arr[i];
+    chunk.push(iElement);
+
+    if(i + 1 % len === 0)
+    {
+      resultArray.push(chunk);
+      chunk = [];
+    }
+  }
+
+  return resultArray;
 }
 
 // CHALLENGE 3: FLATTEN ARRAY
@@ -99,3 +113,4 @@ function letterChanges(str)
 const output = longestWord('Hello, my name is Brad');
 
 console.log(output);
+//https://codepen.io/anon/pen/ZoqZpJ?editors=0012
