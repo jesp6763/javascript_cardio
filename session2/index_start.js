@@ -61,7 +61,18 @@ function chunkArray(arr, len)
 
 function flattenArray(arrays)
 {
-  
+  let singleArr = [];
+
+  for (let i = 0; i < arrays.length; i++) {
+    const iElement = arrays[i];
+
+    for (let j = 0; j < iElement.length; j++) {
+      const jElement = iElement[j];
+      singleArr.push(jElement);
+    }
+  }
+
+  return singleArr;
 }
 
 // CHALLENGE 4: ANAGRAM
