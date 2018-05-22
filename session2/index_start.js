@@ -53,17 +53,12 @@ function longestWord(sen) {
 function chunkArray(arr, len)
 {
   let resultArray = [];
-  let chunk = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    const iElement = arr[i];
-    chunk.push(iElement);
-
-    if(i + 1 % len === 0)
-    {
-      resultArray.push(chunk);
-      chunk = [];
-    }
+  let number = 0;
+  
+  for (let i = 0; i < arr.length / len; i++) {
+    let startIndex = i + number;
+    resultArray.push( arr.slice(startIndex, startIndex + len) );
+    number += len - 1;
   }
 
   return resultArray;
